@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,22 +11,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sigitmoonlight">
 
-        <!-- Dashboard -->
+        <!-- Pertemuan 2 Activities -->
         <activity
-            android:name=".tugasp3.DashboardActivity"
+            android:name=".pertemuan_2.FormulaActivity"
             android:exported="false" />
 
-        <!-- Login (Launcher) -->
+        <!-- Login (Launcher) - Berada di package tugasp3 -->
         <activity
             android:name=".tugasp3.LoginActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <!-- Pertemuan 4 Activities -->
+        <activity
+            android:name=".pertemuan_4.welcome.WelcomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_4.main.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_4.rumus.RumusActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_4.common.DetailActivity"
+            android:exported="false" />
+
+        <!-- Pertemuan 5 Activities -->
+        <activity
+            android:name=".pertemuan_5.FifthActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_5.WebViewActivity"
+            android:exported="false" />
 
     </application>
 

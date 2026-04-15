@@ -1,4 +1,4 @@
-package com.example.sigit_moonlight.tugasp3
+package com.example.sigit_moonlight.pertemuan_4.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,20 +17,18 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Menggunakan ID sesuai tugasp3: button2, editTextTextEmailAddress2, editTextTextPassword
+        // LoginActivity ini menggunakan ID sesuai activity_login.xml yang terbaru
         binding.button2.setOnClickListener {
-
-            val email = binding.editTextTextEmailAddress2.text.toString()
+            val username = binding.editTextTextEmailAddress2.text.toString()
             val password = binding.editTextTextPassword.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                // Alur: Login -> Welcome -> Main (Dashboard)
+            if (username.isNotEmpty() && password.isNotEmpty()) {
                 val intent = Intent(this, WelcomeActivity::class.java)
-                intent.putExtra("EXTRA_NAME", email)
+                intent.putExtra("EXTRA_NAME", username)
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "Isi dulu email & password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Harap isi username dan password", Toast.LENGTH_SHORT).show()
             }
         }
     }

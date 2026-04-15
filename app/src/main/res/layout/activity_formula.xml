@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".pertemuan_2.FormulaActivity">
+
+    <TextView
+        android:id="@+id/tvTitleFormula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rumus Bangun"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDescFormula"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi halaman"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleFormula"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Luas Segitiga Section -->
+    <TextView
+        android:id="@+id/tvLabelSegitiga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="1. Luas Segitiga (Bangun Datar)"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvDescFormula"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etAlas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Alas"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelSegitiga"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/etTinggi"
+        android:layout_marginEnd="8dp"/>
+
+    <EditText
+        android:id="@+id/etTinggi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Tinggi"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelSegitiga"
+        app:layout_constraintStart_toEndOf="@id/etAlas"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnHitungSegitiga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Luas Segitiga"
+        app:layout_constraintTop_toBottomOf="@id/etAlas" />
+
+    <TextView
+        android:id="@+id/tvHasilSegitiga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil: -"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/btnHitungSegitiga"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Volume Kubus Section -->
+    <TextView
+        android:id="@+id/tvLabelKubus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="2. Volume Kubus (Bangun Ruang)"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tvHasilSegitiga"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etSisi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Sisi"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelKubus" />
+
+    <Button
+        android:id="@+id/btnHitungKubus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Volume Kubus"
+        app:layout_constraintTop_toBottomOf="@id/etSisi" />
+
+    <TextView
+        android:id="@+id/tvHasilKubus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil: -"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/btnHitungKubus"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnBackFormula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kembali"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
