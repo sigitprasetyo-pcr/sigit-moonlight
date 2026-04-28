@@ -13,7 +13,7 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="64dp"
-        android:src="@drawable/seafood_nasi_uduk_cak_mat_99"
+        android:src="@drawable/ic_nusadata_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

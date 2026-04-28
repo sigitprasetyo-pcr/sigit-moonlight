@@ -13,14 +13,23 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityCommonDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Setup Toolbar
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
         val title = intent.getStringExtra("EXTRA_TITLE") ?: "Detail"
         val desc = intent.getStringExtra("EXTRA_DESC") ?: ""
 
         binding.tvDetailTitle.text = title
         binding.tvDetailDesc.text = desc
+    }
 
-        binding.btnBack.setOnClickListener {
-            finish()
-        }
+    // Handle tombol back di Toolbar
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }

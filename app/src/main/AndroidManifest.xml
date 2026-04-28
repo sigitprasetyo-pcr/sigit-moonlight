@@ -9,6 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/Theme.Sigitmoonlight">
 
         <!-- Pertemuan 2 Activities -->
@@ -16,15 +18,20 @@
             android:name=".pertemuan_2.FormulaActivity"
             android:exported="false" />
 
-        <!-- Login (Launcher) - Berada di package tugasp3 -->
+        <!-- Splash Screen (Launcher) -->
         <activity
-            android:name=".tugasp3.LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Login -->
+        <activity
+            android:name=".tugasp3.LoginActivity"
+            android:exported="false" />
 
         <!-- Pertemuan 4 Activities -->
         <activity

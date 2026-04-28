@@ -14,8 +14,14 @@ class RumusActivity : AppCompatActivity() {
         binding = ActivityRumusBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
         val title = intent.getStringExtra("EXTRA_TITLE") ?: "Rumus Bangun"
-        binding.tvRumusTitle.text = title
+        supportActionBar?.title = title
 
         // HITUNG KUBUS
         binding.btnHitungLuasKubus.setOnClickListener {
@@ -52,9 +58,10 @@ class RumusActivity : AppCompatActivity() {
                 Toast.makeText(this, "Masukkan alas dan tinggi segitiga", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        binding.btnBack.setOnClickListener {
-            finish()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }

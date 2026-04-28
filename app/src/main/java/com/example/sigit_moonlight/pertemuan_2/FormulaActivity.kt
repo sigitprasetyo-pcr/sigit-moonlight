@@ -15,12 +15,12 @@ class FormulaActivity : AppCompatActivity() {
         binding = ActivityFormulaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Penjelasan Materi:
-        // Package: Mengelompokkan file agar rapi (pertemuan_2)
-        // Logcat: Digunakan untuk melihat log sistem atau debug (Log.e)
-        // ConstraintLayout: Digunakan di XML untuk membuat layout yang fleksibel dengan constraint antar komponen
-        
-        Log.e("Lifecycle", "FormulaActivity: onCreate")
+        // Setup Toolbar sebagai Action Bar
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
 
         // Ambil data dari intent (Judul & Deskripsi dari Halaman Utama)
         val title = intent.getStringExtra("title") ?: "Rumus"
@@ -58,10 +58,12 @@ class FormulaActivity : AppCompatActivity() {
                 Toast.makeText(this, "Masukkan panjang sisi", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        binding.btnBackFormula.setOnClickListener {
-            finish()
-        }
+    // Handle tombol back di Toolbar
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 
     override fun onDestroy() {

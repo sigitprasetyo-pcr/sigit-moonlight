@@ -1,12 +1,14 @@
 package com.example.sigit_moonlight.pertemuan_4.main
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sigit_moonlight.R
 import com.example.sigit_moonlight.databinding.ActivityMainBinding
 import com.example.sigit_moonlight.tugasp3.LoginActivity
-import com.example.sigit_moonlight.pertemuan_5.FifthActivity
+import com.example.sigit_moonlight.pertemuan_5.WebViewActivity
 import com.example.sigit_moonlight.pertemuan_4.common.DetailActivity
 import com.example.sigit_moonlight.pertemuan_4.rumus.RumusActivity
 import com.example.sigit_moonlight.pertemuan_2.FormulaActivity
@@ -18,38 +20,43 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 1. CEK LOGIN: Jika belum login, paksa ke halaman Login
+        val sharedPref = getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
+        val isLogin = sharedPref.getBoolean("isLogin", false)
+        
+        if (!isLogin) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val username = intent.getStringExtra("USERNAME") ?: "User"
-        binding.tvDashboardUser.text = "Halo, $username!"
+        val userEmail = sharedPref.getString("user_email", "Admin")
+        binding.tvDashboardUser.text = "Selamat Datang, $userEmail"
 
-        // Button untuk Pertemuan 2 (Formula)
-        binding.btnRumus.setOnClickListener {
-            val intent = Intent(this, FormulaActivity::class.java)
-            intent.putExtra("title", "Rumus Bangun")
-            intent.putExtra("description", "Perhitungan Luas Segitiga dan Volume Kubus.")
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_settings -> {
+                    showLogoutDialog()
+                    false
+                }
+                else -> true
+            }
+        }
+
+        // --- Tombol Fitur Lainnya ---
+        binding.btnTotalWarga.setOnClickListener {
+            startActivity(Intent(this, FormulaActivity::class.java))
+        }
+
+        binding.btnWebView.setOnClickListener {
+            val intent = Intent(this, WebViewActivity::class.java)
+            intent.putExtra("URL", "https://sigit-admin-penduduk.alwaysdata.net/dashboard")
             startActivity(intent)
-        }
-
-        // Button untuk Pertemuan 4 (Rumus detail)
-        binding.btnCustom1.setOnClickListener {
-            val intent = Intent(this, RumusActivity::class.java)
-            intent.putExtra("EXTRA_TITLE", "Rumus Bangun")
-            startActivity(intent)
-        }
-
-        binding.btnCustom2.setOnClickListener {
-            moveToPage("Detail Info", "Ini adalah halaman detail aplikasi Sigit Moonlight.")
-        }
-
-        binding.btnPertemuan5.setOnClickListener {
-            val intent = Intent(this, FifthActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.btnLogout.setOnClickListener {
-            showLogoutDialog()
         }
     }
 
@@ -62,16 +69,23 @@ class MainActivity : AppCompatActivity() {
 
     private fun showLogoutDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Konfirmasi Logout")
-            .setMessage("Apakah Anda yakin ingin keluar?")
-            .setPositiveButton("Ya") { _, _ ->
+            .setTitle("Logout Aplikasi")
+            .setMessage("Apakah Anda yakin ingin keluar dari akun ini?")
+            .setPositiveButton("Ya, Keluar") { _, _ ->
+                // HAPUS STATUS LOGIN
+                val sharedPref = getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
+                with(sharedPref.edit()) {
+                    putBoolean("isLogin", false)
+                    apply()
+                }
+
+                // Kembali ke Login dan bersihkan history layar
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
+                finish()
             }
-            .setNegativeButton("Tidak") { _, _ ->
-                Snackbar.make(binding.root, "Logout dibatalkan", Snackbar.LENGTH_SHORT).show()
-            }
+            .setNegativeButton("Batal", null)
             .show()
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#199ABD"> <ImageView
+    android:background="#F8F9FD"> <ImageView
     android:id="@+id/imageView4"
     android:layout_width="185dp"
     android:layout_height="185dp"
@@ -12,7 +12,10 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/seafood_nasi_uduk_cak_mat_99" />
+    app:srcCompat="@drawable/ic_nusadata_logo" />
+
+    <group android:id="@+id/group">
+    </group>
 
     <TextView
         android:id="@+id/textView7"
@@ -20,9 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="SELAMAT DATANG DI PECEL LELE CAK MAT"
+        android:text="SELAMAT DATANG DI NUSADATA"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#101828"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +40,7 @@
         android:text="Kembali Ke Login"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:backgroundTint="#000000"
+        app:backgroundTint="#2D32D1"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
