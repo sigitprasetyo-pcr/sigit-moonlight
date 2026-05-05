@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Sigitmoonlight">
 
         <!-- Pertemuan 2 Activities -->
@@ -20,7 +21,7 @@
 
         <!-- Splash Screen (Launcher) -->
         <activity
-            android:name=".SplashActivity"
+            android:name=".pertemuan_4.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,24 +31,25 @@
 
         <!-- Login -->
         <activity
-            android:name=".tugasp3.LoginActivity"
+            android:name=".pertemuan_3.LoginActivity"
             android:exported="false" />
 
-        <!-- Pertemuan 4 Activities -->
+        <!-- Main -->
         <activity
-            android:name=".pertemuan_4.welcome.WelcomeActivity"
+            android:name=".pertemuan_4.main.MainActivity"
             android:exported="false" />
 
         <activity
             android:name=".pertemuan_4.main.AuthActivity"
             android:exported="false" />
 
+        <!-- Rumus -->
         <activity
-            android:name=".pertemuan_4.main.MainActivity"
+            android:name=".pertemuan_4.rumus.RumusActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan_4.rumus.RumusActivity"
+            android:name=".pertemuan_4.welcome.WelcomeActivity"
             android:exported="false" />
 
         <activity

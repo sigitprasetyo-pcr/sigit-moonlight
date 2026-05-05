@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Nusadata Branding Palette - Based on Logo and Figma -->
-    <color name="primaryColor">#2D32D1</color>
-    <color name="primaryLightColor">#6D5BFF</color>
-    <color name="primaryDarkColor">#101828</color>
-    <color name="secondaryColor">#F79009</color> <!-- Yellow from logo -->
-    <color name="accentBlue">#3BB2FB</color> <!-- Light blue from logo -->
-    <color name="backgroundColor">#F8F9FD</color>
+    <!-- Brand Colors -->
+    <color name="primary">#1A237E</color>
+    <color name="primary_dark">#0D1244</color>
+    <color name="secondary">#0056C5</color>
+    <color name="on_primary">#FFFFFF</color>
 
-    <!-- UI Element Colors -->
-    <color name="text_main">#101828</color>
-    <color name="text_secondary">#667085</color>
-    <color name="border_color">#EAECF0</color>
+    <!-- Neutral Colors -->
+    <color name="background">#F8F9FD</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#1A1C1C</color>
+    <color name="outline">#767683</color>
+    <color name="outline_variant">#E2E8F0</color>
+
+    <!-- Specific UI Colors -->
+    <color name="blue_bg">#1A237E</color>
+    <color name="blue_accent">#3F51B5</color>
+    <color name="blue_light">#E8EAF6</color>
+    <color name="blue_chip">#EFF6FF</color>
+    <color name="text_muted">#64748B</color>
+
+    <!-- Functional Colors -->
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="error">#B91C1C</color>
+    <color name="logout_red_bg">#FEE2E2</color>
+    <color name="logout_red_text">#B91C1C</color>
+
+    <!-- Missing References Fix -->
+    <color name="text_main">#1A1C1C</color>
+    <color name="text_secondary">#64748B</color>
+
+    <!-- Legacy compatibility -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="error_red">#D92D20</color>
-    <color name="accent_green">#12B76A</color>
+    <color name="primaryColor">#1A237E</color>
+    <color name="primaryDark">#1A237E</color>
+    <color name="backgroundColor">#F8F9FD</color>
+    <color name="dark_text">#1A1C1C</color>
+    <color name="gray_text">#767683</color>
+    <color name="border_color">#E2E8F0</color>
+    <color name="logoutRed">#B91C1C</color>
 </resources>
