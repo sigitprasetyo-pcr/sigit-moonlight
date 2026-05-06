@@ -1,18 +1,12 @@
 package com.example.sigit_moonlight.pertemuan_4.main
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sigit_moonlight.R
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.sigit_moonlight.databinding.FragmentHomeBinding
-import com.example.sigit_moonlight.pertemuan_2.FormulaActivity
-import com.example.sigit_moonlight.pertemuan_3.LoginActivity
-
 import com.example.sigit_moonlight.pertemuan_5.WebViewActivity
 
 class HomeFragment : Fragment() {

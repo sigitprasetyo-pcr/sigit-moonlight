@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.sigit_moonlight.R
 import com.example.sigit_moonlight.databinding.ActivityMainBinding
+import com.example.sigit_moonlight.pertemuan_3.LoginActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val sharedPref = getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
             sharedPref.edit().putBoolean("isLogin", false).apply()
 
-            val intent = Intent(this, com.example.sigit_moonlight.pertemuan_3.LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()

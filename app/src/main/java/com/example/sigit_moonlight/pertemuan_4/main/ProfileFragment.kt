@@ -28,13 +28,9 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Tombol Keluar / Logout
         binding.btnLogout.setOnClickListener {
             showLogoutDialog()
         }
-        
-        // Anda bisa menambahkan listener untuk item profil lainnya di sini jika diperlukan
-        // Contoh: binding.itemEditProfile.setOnClickListener { ... }
     }
 
     private fun showLogoutDialog() {
@@ -42,14 +38,12 @@ class ProfileFragment : Fragment() {
             .setTitle("Logout Aplikasi")
             .setMessage("Apakah Anda yakin ingin keluar dari akun ini?")
             .setPositiveButton("Ya, Keluar") { _, _ ->
-                // Hapus sesi login
                 val sharedPref = requireActivity().getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
                 with(sharedPref.edit()) {
                     putBoolean("isLogin", false)
                     apply()
                 }
 
-                // Kembali ke halaman Login
                 val intent = Intent(requireContext(), LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)

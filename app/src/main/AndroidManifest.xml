@@ -29,9 +29,17 @@
             </intent-filter>
         </activity>
 
-        <!-- Login -->
+        <!-- Login & Auth -->
         <activity
             android:name=".pertemuan_3.LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_3.RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_3.VerificationActivity"
             android:exported="false" />
 
         <!-- Main -->
