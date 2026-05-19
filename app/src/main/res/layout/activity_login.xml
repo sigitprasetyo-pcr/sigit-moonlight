@@ -63,13 +63,16 @@
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
+                app:boxCornerRadiusTopStart="12dp"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Masukkan email atau username"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_muted"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,13 +94,16 @@
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
+                app:boxCornerRadiusTopStart="12dp"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Masukkan password Anda"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_muted"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 

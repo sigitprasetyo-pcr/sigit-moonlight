@@ -73,6 +73,11 @@
             android:name=".pertemuan_5.WebViewActivity"
             android:exported="false" />
 
+        <!-- Pertemuan 9 Activities -->
+        <activity
+            android:name=".pertemuan_9.MenuActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
