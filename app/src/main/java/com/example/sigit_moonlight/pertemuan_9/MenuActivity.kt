@@ -1,9 +1,12 @@
 package com.example.sigit_moonlight.pertemuan_9
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sigit_moonlight.databinding.ActivityMenuBinding
+import com.example.sigit_moonlight.pertemuan_10.recyclerview.DesaListActivity
+import com.example.sigit_moonlight.pertemuan_10.tablayout.TabLayoutActivity
 import com.google.android.material.snackbar.Snackbar
 
 class MenuActivity : AppCompatActivity() {
@@ -22,6 +25,8 @@ class MenuActivity : AppCompatActivity() {
 
         // Data for ListView (ArrayAdapter)
         val menuItems = arrayOf(
+            "Daftar Desa (RecyclerView)",
+            "Informasi Nusadata (TabLayout)",
             "Privacy Policy",
             "Terms of Service",
             "About App",
@@ -37,7 +42,17 @@ class MenuActivity : AppCompatActivity() {
         // ListView Item Click
         binding.listViewMenu.setOnItemClickListener { _, _, position, _ ->
             val selected = menuItems[position]
-            Snackbar.make(binding.root, "Melihat detail $selected...", Snackbar.LENGTH_SHORT).show()
+            when (selected) {
+                "Daftar Desa (RecyclerView)" -> {
+                    startActivity(Intent(this, DesaListActivity::class.java))
+                }
+                "Informasi Nusadata (TabLayout)" -> {
+                    startActivity(Intent(this, TabLayoutActivity::class.java))
+                }
+                else -> {
+                    Snackbar.make(binding.root, "Melihat detail $selected...", Snackbar.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

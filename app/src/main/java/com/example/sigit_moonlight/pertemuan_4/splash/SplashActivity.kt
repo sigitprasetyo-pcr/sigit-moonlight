@@ -18,14 +18,14 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val sharedPref = getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("isLogin", false)
+            val isOnboardingFinished = sharedPref.getBoolean("onboarding_finished", false)
 
-            if (isLogin) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            } else {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
+            val intent = when {
+                isLogin -> Intent(this, MainActivity::class.java)
+                !isOnboardingFinished -> Intent(this, com.example.sigit_moonlight.pertemuan_11.onboarding.OnboardingActivity::class.java)
+                else -> Intent(this, LoginActivity::class.java)
             }
+            startActivity(intent)
             finish()
         }, 3000)
     }

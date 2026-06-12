@@ -31,6 +31,10 @@
 
         <!-- Login & Auth -->
         <activity
+            android:name=".pertemuan_11.onboarding.OnboardingActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".pertemuan_3.LoginActivity"
             android:exported="false" />
 
@@ -76,6 +80,15 @@
         <!-- Pertemuan 9 Activities -->
         <activity
             android:name=".pertemuan_9.MenuActivity"
+            android:exported="false" />
+
+        <!-- Pertemuan 10 Activities -->
+        <activity
+            android:name=".pertemuan_10.tablayout.TabLayoutActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_10.recyclerview.DesaListActivity"
             android:exported="false" />
 
     </application>
