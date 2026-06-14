@@ -6,26 +6,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sigit_moonlight.R
 import com.example.sigit_moonlight.databinding.FragmentHomeBinding
-import com.example.sigit_moonlight.pertemuan_10.tablayout.TabLayoutActivity
-import com.example.sigit_moonlight.pertemuan_2.FormulaActivity
 import com.example.sigit_moonlight.pertemuan_3.LoginActivity
-import com.example.sigit_moonlight.pertemuan_4.rumus.RumusActivity
-import com.example.sigit_moonlight.pertemuan_5.FifthActivity
-import com.example.sigit_moonlight.pertemuan_5.WebViewActivity
-import com.example.sigit_moonlight.pertemuan_9.MenuActivity
 import com.example.sigit_moonlight.pertemuan_11.news.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import androidx.recyclerview.widget.LinearLayoutManager
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    
+    private val pendudukViewModel: PendudukViewModel by viewModels()
+    private val aspirasiViewModel: AspirasiViewModel by viewModels()
     private lateinit var newsAdapter: NewsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -36,41 +37,34 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Web Desa (Portal WebView)
-        binding.btnWebDesa.setOnClickListener {
-            val intent = Intent(requireContext(), WebViewActivity::class.java)
-            intent.putExtra("URL", "http://sigit-admin-penduduk.alwaysdata.net/dashboard")
-            startActivity(intent)
+        // Observe Counts directly from Room Database
+        pendudukViewModel.pendudukCount.observe(viewLifecycleOwner) { count ->
+            binding.tvStatPendudukCount.text = (count ?: 0).toString()
         }
 
-        // Navigasi ke Pertemuan 2
-        binding.btnPertemuan2.setOnClickListener {
-            startActivity(Intent(requireContext(), FormulaActivity::class.java))
+        aspirasiViewModel.aspirasiCount.observe(viewLifecycleOwner) { count ->
+            binding.tvStatAspirasiCount.text = (count ?: 0).toString()
         }
 
-        // Navigasi ke Pertemuan 3
-        binding.btnPertemuan3.setOnClickListener {
-            startActivity(Intent(requireContext(), LoginActivity::class.java))
+        // Setup Main Menu Clicks
+        binding.btnMenuPenduduk.setOnClickListener {
+            (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.bottomNavigation)?.selectedItemId = R.id.nav_penduduk
         }
 
-        // Navigasi ke Pertemuan 4
-        binding.btnPertemuan4.setOnClickListener {
-            startActivity(Intent(requireContext(), RumusActivity::class.java))
+        binding.btnMenuAspirasi.setOnClickListener {
+            (activity as? MainActivity)?.findViewById<BottomNavigationView>(R.id.bottomNavigation)?.selectedItemId = R.id.nav_aspirasi
         }
 
-        // Navigasi ke Pertemuan 5
-        binding.btnPertemuan5.setOnClickListener {
-            startActivity(Intent(requireContext(), FifthActivity::class.java))
+        binding.btnMenuBerita.setOnClickListener {
+            binding.scrollView.smoothScrollTo(0, binding.tvBeritaHeader.top)
         }
 
-        // Navigasi ke Pertemuan 9
-        binding.btnPertemuan9.setOnClickListener {
-            startActivity(Intent(requireContext(), MenuActivity::class.java))
-        }
-
-        // Navigasi ke Pertemuan 10 (TabLayout & RecyclerView)
-        binding.btnPertemuan10.setOnClickListener {
-            startActivity(Intent(requireContext(), TabLayoutActivity::class.java))
+        binding.btnMenuProfilDesa.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Profil Desa NusaData")
+                .setMessage("Desa NusaData merupakan kawasan percontohan program Bina Desa Digital.\n\nSistem ini dirancang untuk memudahkan administrasi data penduduk secara mandiri dan menampung aspirasi warga demi pembangunan desa yang lebih transparan dan inklusif.")
+                .setPositiveButton("Tutup", null)
+                .show()
         }
 
         // Tombol Keluar Akun
@@ -89,23 +83,27 @@ class HomeFragment : Fragment() {
     }
 
     private fun fetchNews() {
+        binding.pbNews.visibility = View.VISIBLE
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://berita-indo-api-next.vercel.app/")
+            .baseUrl("https://berita-indo-api.vercel.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val service = retrofit.create(NewsService::class.java)
         service.getCnnNews().enqueue(object : Callback<NewsResponse> {
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
+                binding.pbNews.visibility = View.GONE
                 if (response.isSuccessful) {
-                    val posts = response.body()?.data?.posts
+                    val posts = response.body()?.data
                     if (posts != null) {
                         newsAdapter.updateData(posts)
+                        binding.tvStatNewsCount.text = posts.size.toString()
                     }
                 }
             }
 
             override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
+                binding.pbNews.visibility = View.GONE
                 // Handle failure
             }
         })

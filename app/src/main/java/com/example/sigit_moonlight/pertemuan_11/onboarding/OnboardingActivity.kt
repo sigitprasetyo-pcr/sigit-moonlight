@@ -3,6 +3,7 @@ package com.example.sigit_moonlight.pertemuan_11.onboarding
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.sigit_moonlight.R
@@ -21,18 +22,18 @@ class OnboardingActivity : AppCompatActivity() {
 
         val onboardingItems = listOf(
             OnboardingItem(
-                "Selamat Datang",
-                "Aplikasi Bina Desa untuk kemudahan informasi masyarakat desa.",
+                "Selamat Datang di NusaData",
+                "Platform digital untuk mendukung pelayanan dan informasi desa.",
                 R.drawable.ic_onboarding_welcome
             ),
             OnboardingItem(
-                "Berita Terkini",
-                "Dapatkan berita terbaru seputar desa dan sekitarnya.",
+                "Kelola Data Desa",
+                "Kelola data penduduk dan informasi desa dengan lebih mudah.",
                 R.drawable.ic_onboarding_news
             ),
             OnboardingItem(
-                "Ayo Mulai",
-                "Silahkan login untuk mengakses semua fitur kami.",
+                "Aspirasi dan Informasi",
+                "Sampaikan aspirasi dan dapatkan berita terbaru desa.",
                 R.drawable.ic_onboarding_start
             )
         )
@@ -46,9 +47,11 @@ class OnboardingActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position == onboardingItems.size - 1) {
-                    binding.btnNext.text = "Ayo Mulai"
+                    binding.btnNext.text = "Mulai"
+                    binding.btnSkip.visibility = View.GONE
                 } else {
                     binding.btnNext.text = "Selanjutnya"
+                    binding.btnSkip.visibility = View.VISIBLE
                 }
             }
         })
@@ -57,11 +60,19 @@ class OnboardingActivity : AppCompatActivity() {
             if (binding.viewPager.currentItem < onboardingItems.size - 1) {
                 binding.viewPager.currentItem += 1
             } else {
-                markOnboardingFinished()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
+                navigateToLogin()
             }
         }
+
+        binding.btnSkip.setOnClickListener {
+            navigateToLogin()
+        }
+    }
+
+    private fun navigateToLogin() {
+        markOnboardingFinished()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun markOnboardingFinished() {

@@ -28,9 +28,22 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadUserProfile()
+
         binding.btnLogout.setOnClickListener {
             showLogoutDialog()
         }
+    }
+
+    private fun loadUserProfile() {
+        val sharedPref = requireActivity().getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
+        val name = sharedPref.getString("saved_name", "Pengguna NusaData")
+        val username = sharedPref.getString("saved_username", "admin")
+        
+        binding.tvProfileName.text = name
+        binding.tvProfileUsername.text = "@$username"
+        binding.tvProfileEmail.text = "$username@nusadata.desa.id"
+        binding.tvProfilePosition.text = "Staf Administrasi Desa"
     }
 
     private fun showLogoutDialog() {

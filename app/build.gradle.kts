@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.android.legacy-kapt") version "9.0.0"
 }
 
 android {
@@ -49,6 +50,19 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
     implementation(libs.glide)
+    
+    // Room Database
+    implementation(libs.androidx.room.runtime)
+    "kapt"(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    
+    // Lifecycle components
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    
+    // Fragment extension for by viewModels()
+    implementation(libs.androidx.fragment.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

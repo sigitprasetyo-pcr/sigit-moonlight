@@ -4,6 +4,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface NewsService {
-    @GET("cnn/terbaru/")
+    @GET("v1/cnn-news")
     fun getCnnNews(): Call<NewsResponse>
 }

@@ -13,9 +13,13 @@ class NewsAdapter(private var listNews: List<NewsPost>) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: NewsPost) {
             binding.tvNewsTitle.text = news.title
-            binding.tvNewsDescription.text = news.description
+            binding.tvNewsDescription.text = news.contentSnippet ?: ""
+            
+            val imageUrl = news.image?.small ?: news.image?.large ?: ""
             Glide.with(binding.root.context)
-                .load(news.thumbnail)
+                .load(imageUrl)
+                .placeholder(android.R.drawable.ic_menu_gallery)
+                .error(android.R.drawable.ic_menu_report_image)
                 .into(binding.ivThumbnail)
         }
     }
