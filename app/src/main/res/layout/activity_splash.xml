@@ -3,8 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    android:background="@drawable/bg_hero_bina_desa">
 
+    <!-- Decoration circles -->
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.07"
+        android:background="@drawable/bg_circle_icon_blue"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginTop="-100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:alpha="0.05"
+        android:background="@drawable/bg_circle_icon_blue"
+        android:layout_marginStart="-60dp"
+        android:layout_marginBottom="-60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Center content -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,31 +37,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Logo Card -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="#8F94FB">
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="#1565C0">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="20dp"
+                android:padding="24dp"
                 android:src="@drawable/ic_nusadata_logo"
                 app:tint="@color/white" />
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Gold accent line -->
+        <View
+            android:layout_width="48dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="24dp"
+            android:background="#D4A017" />
+
+        <!-- App Name -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="NUSADATA"
             android:textColor="@color/white"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.15" />
+
+        <!-- Tagline -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Sistem Informasi Desa Terpadu"
+            android:textColor="#8FA8BE"
+            android:textSize="13sp" />
     </LinearLayout>
 
+    <!-- Bottom Info -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,18 +95,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="v2.4.0 • Bina Desa Administration"
+            android:alpha="0.6"
+            android:text="v2.4.0 · Bina Desa Administration"
             android:textColor="@color/white"
-            android:alpha="0.7"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="120dp"
-            android:layout_height="4dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="100dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="14dp"
             android:indeterminate="true"
-            android:indeterminateTint="@color/white" />
+            android:indeterminateTint="#D4A017" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,67 +3,165 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@drawable/bg_hero_bina_desa">
 
-    <!-- Skip Button (Top Right) -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSkip"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Skip"
-        android:textColor="@color/secondary"
-        android:textSize="14sp"
-        android:textStyle="bold"
+    <!-- Decoration: top-right circle -->
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:alpha="0.08"
+        android:background="@drawable/bg_circle_icon_blue"
+        android:layout_marginEnd="-80dp"
+        android:layout_marginTop="-80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ViewPager2 for Slides -->
+    <!-- Decoration: bottom-left circle -->
+    <View
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:alpha="0.06"
+        android:background="@drawable/bg_circle_icon_blue"
+        android:layout_marginStart="-60dp"
+        android:layout_marginBottom="-60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Top Brand Header -->
+    <LinearLayout
+        android:id="@+id/topBrand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Logo icon -->
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_onboarding_circle"
+            android:layout_marginEnd="12dp">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_nusadata_logo"
+                app:tint="@color/white" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NusaData"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bina Desa Digital"
+                android:textColor="#8FA8BE"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Skip button (top-right) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSkip"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lewati"
+            android:textColor="#8FA8BE"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- ViewPager2 -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
-        app:layout_constraintTop_toBottomOf="@+id/btnSkip" />
+        app:layout_constraintTop_toBottomOf="@+id/topBrand"
+        app:layout_constraintBottom_toTopOf="@+id/bottomContainer" />
 
-    <!-- Bottom Container (Indicators and Next Button) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
         android:id="@+id/bottomContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp"
+        android:orientation="vertical"
+        android:background="#1AFFFFFF"
+        android:paddingHorizontal="28dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Indicator Dot (TabLayout) -->
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="wrap_content"
+        <!-- Gold accent line -->
+        <View
+            android:layout_width="36dp"
+            android:layout_height="3dp"
+            android:background="#D4A017"
+            android:layout_marginBottom="18dp" />
+
+        <!-- Row: dots + next button -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabBackground="@drawable/tab_selector"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp"
-            app:tabMaxWidth="10dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <!-- Next / Mulai Button -->
+            <!-- Indicator Dots -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="start"
+                app:tabIndicatorHeight="0dp"
+                app:tabMaxWidth="14dp" />
+
+            <!-- "Selanjutnya" Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:backgroundTint="@color/secondary"
+                android:paddingHorizontal="24dp"
+                android:text="Selanjutnya"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                app:cornerRadius="26dp"
+                app:elevation="6dp" />
+        </LinearLayout>
+
+        <!-- "Ayo Mulai" Button (only visible on last slide) -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/secondary"
-            android:text="Selanjutnya"
-            android:textColor="@color/white"
+            android:id="@+id/btnMulai"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="14dp"
+            android:backgroundTint="#D4A017"
+            android:text="🚀  Ayo Mulai!"
+            android:textColor="#0D2137"
             android:textStyle="bold"
-            app:cornerRadius="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="16sp"
+            app:cornerRadius="28dp"
+            app:elevation="8dp"
+            android:visibility="gone" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

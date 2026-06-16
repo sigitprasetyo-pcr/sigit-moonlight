@@ -23,17 +23,17 @@ class OnboardingActivity : AppCompatActivity() {
         val onboardingItems = listOf(
             OnboardingItem(
                 "Selamat Datang di NusaData",
-                "Platform digital untuk mendukung pelayanan dan informasi desa.",
+                "Platform digital untuk mendukung pelayanan\ndan informasi desa Nusantara.",
                 R.drawable.ic_onboarding_welcome
             ),
             OnboardingItem(
                 "Kelola Data Desa",
-                "Kelola data penduduk dan informasi desa dengan lebih mudah.",
+                "Kelola data penduduk dan informasi desa\ndengan mudah, cepat, dan aman.",
                 R.drawable.ic_onboarding_news
             ),
             OnboardingItem(
-                "Aspirasi dan Informasi",
-                "Sampaikan aspirasi dan dapatkan berita terbaru desa.",
+                "Aspirasi & Informasi",
+                "Sampaikan aspirasi warga dan dapatkan\nberita terbaru langsung dari desamu.",
                 R.drawable.ic_onboarding_start
             )
         )
@@ -43,27 +43,40 @@ class OnboardingActivity : AppCompatActivity() {
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { _, _ -> }.attach()
 
+        // Handle slide changes
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position == onboardingItems.size - 1) {
-                    binding.btnNext.text = "Mulai"
+                val isLastPage = position == onboardingItems.size - 1
+
+                if (isLastPage) {
+                    // Last slide: hide "Selanjutnya", show "Ayo Mulai!", hide "Lewati"
+                    binding.btnNext.visibility = View.GONE
+                    binding.btnMulai.visibility = View.VISIBLE
                     binding.btnSkip.visibility = View.GONE
                 } else {
-                    binding.btnNext.text = "Selanjutnya"
+                    // Other slides: show "Selanjutnya", hide "Ayo Mulai", show "Lewati"
+                    binding.btnNext.visibility = View.VISIBLE
+                    binding.btnMulai.visibility = View.GONE
                     binding.btnSkip.visibility = View.VISIBLE
                 }
             }
         })
 
+        // "Selanjutnya" button
         binding.btnNext.setOnClickListener {
-            if (binding.viewPager.currentItem < onboardingItems.size - 1) {
-                binding.viewPager.currentItem += 1
-            } else {
-                navigateToLogin()
+            val next = binding.viewPager.currentItem + 1
+            if (next < onboardingItems.size) {
+                binding.viewPager.currentItem = next
             }
         }
 
+        // "Ayo Mulai!" button — only on last slide
+        binding.btnMulai.setOnClickListener {
+            navigateToLogin()
+        }
+
+        // "Lewati" button — skip directly to login
         binding.btnSkip.setOnClickListener {
             navigateToLogin()
         }
@@ -77,6 +90,9 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun markOnboardingFinished() {
         val sharedPref = getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
-        sharedPref.edit().putBoolean("onboarding_finished", true).apply()
+        sharedPref.edit()
+            .putBoolean("onboarding_finished", true)
+            .putString("onboarding_version", "v3")
+            .apply()
     }
 }

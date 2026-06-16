@@ -12,495 +12,362 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header Hero Section (Gradient Banner) -->
+        <!-- ======= HERO HEADER ======= -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_home_header_hero"
+            android:background="@drawable/bg_hero_bina_desa"
             android:orientation="vertical"
             android:paddingHorizontal="24dp"
-            android:paddingTop="36dp"
-            android:paddingBottom="48dp">
+            android:paddingTop="40dp"
+            android:paddingBottom="60dp">
 
+            <!-- Top Row: Badge + Pill -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_chip_green"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_leaf"
+                        android:layout_marginEnd="6dp"
+                        app:tint="#1565C0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bina Desa Digital"
+                        android:textColor="#1565C0"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#33FFFFFF"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="🌊 NusaData"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Greeting -->
             <TextView
                 android:id="@+id/tvGreeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Halo, Pengguna 👋"
-                android:textColor="#CBD5E1"
-                android:textSize="14sp"
+                android:text="Selamat Datang, Pengguna 👋"
+                android:textColor="#8FA8BE"
+                android:textSize="13sp" />
+
+            <!-- Big Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="NusaData"
+                android:textColor="@color/white"
+                android:textSize="38sp"
                 android:textStyle="bold" />
+
+            <!-- Gold Accent Tagline -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp">
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="3dp"
+                    android:background="#D4A017"
+                    android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SISTEM INFORMASI DESA TERPADU"
+                    android:textColor="#D4A017"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.12" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="NusaData"
-                android:textColor="@color/white"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bina Desa Digital"
-                android:textColor="#38BDF8"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Layanan informasi terintegrasi kependudukan &amp; aspirasi warga."
-                android:textColor="#94A3B8"
-                android:textSize="12sp" />
+                android:text="Layanan informasi kependudukan, aspirasi, dan berita warga desa Nusantara."
+                android:textColor="#7A9DB5"
+                android:textSize="12sp"
+                android:lineSpacingExtra="3dp" />
         </LinearLayout>
 
-        <!-- Main Content Area (Overlaps the banner) -->
+        <!-- ======= MAIN CONTENT (overlaps hero) ======= -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-28dp"
+            android:layout_marginTop="-36dp"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingBottom="24dp">
+            android:paddingBottom="32dp">
 
-            <!-- Statistik Row -->
+            <!-- ===== STATISTIK CARDS ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:layout_marginBottom="28dp">
+                android:layout_marginBottom="24dp">
 
-                <!-- Card Total Penduduk -->
+                <!-- Penduduk -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="5dp"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:strokeWidth="0dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stat_card_blue"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        android:padding="14dp">
-
-                        <FrameLayout
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:background="@drawable/bg_circle_icon_blue">
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:src="@android:drawable/ic_menu_myplaces"
-                                app:tint="@color/primary" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/tvStatPendudukCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="0"
-                            android:textColor="@color/primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Penduduk"
-                            android:textColor="@color/text_muted"
-                            android:textSize="11sp" />
+                        android:padding="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="👥" android:textSize="22sp" />
+                        <TextView android:id="@+id/tvStatPendudukCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="0" android:textColor="@color/white" android:textSize="24sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Penduduk" android:textColor="#90B8D8" android:textSize="10sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Card Total Aspirasi -->
+                <!-- Aspirasi -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginHorizontal="2dp"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:strokeWidth="0dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stat_card_gold"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        android:padding="14dp">
-
-                        <FrameLayout
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:background="@drawable/bg_circle_icon_orange">
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_message"
-                                app:tint="@color/warning" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/tvStatAspirasiCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="0"
-                            android:textColor="@color/warning"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Aspirasi"
-                            android:textColor="@color/text_muted"
-                            android:textSize="11sp" />
+                        android:padding="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💬" android:textSize="22sp" />
+                        <TextView android:id="@+id/tvStatAspirasiCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="0" android:textColor="@color/white" android:textSize="24sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Aspirasi" android:textColor="#F5DEB3" android:textSize="10sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Card Berita Desa -->
+                <!-- Berita -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="5dp"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:strokeWidth="0dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stat_card_green"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        android:padding="14dp">
-
-                        <FrameLayout
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
-                            android:background="@drawable/bg_circle_icon_green">
-                            <ImageView
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_gravity="center"
-                                android:src="@android:drawable/ic_menu_gallery"
-                                app:tint="@color/success" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:id="@+id/tvStatNewsCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="0"
-                            android:textColor="@color/success"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Berita Desa"
-                            android:textColor="@color/text_muted"
-                            android:textSize="11sp" />
+                        android:padding="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📰" android:textSize="22sp" />
+                        <TextView android:id="@+id/tvStatNewsCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="0" android:textColor="@color/white" android:textSize="24sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Berita Desa" android:textColor="#B8D4F0" android:textSize="10sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <!-- Menu Utama Header -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- ===== VISI BANNER ===== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Menu Layanan Utama"
-                android:textColor="@color/primary_dark"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="4dp" />
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hero_bina_desa"
+                    android:orientation="horizontal"
+                    android:padding="18dp"
+                    android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏛️ Visi NusaData" android:textColor="#D4A017" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Membangun desa yang maju, mandiri, dan digital untuk kesejahteraan Nusantara." android:textColor="#B0C8E0" android:textSize="12sp" android:lineSpacingExtra="2dp" />
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="🏡" android:textSize="40sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Menu Grid Layout -->
+            <!-- ===== SECTION: MENU LAYANAN ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="28dp">
-
-                <!-- Row 1 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:layout_marginBottom="12dp">
-
-                    <!-- Data Penduduk -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnMenuPenduduk"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="18dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:strokeColor="#E2E8F0"
-                        app:strokeWidth="1dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="20dp">
-
-                            <FrameLayout
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_circle_icon_blue">
-                                <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_gravity="center"
-                                    android:src="@android:drawable/ic_menu_myplaces"
-                                    app:tint="@color/primary" />
-                            </FrameLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:text="Data Penduduk"
-                                android:textColor="#1E293B"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Aspirasi Warga -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnMenuAspirasi"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="18dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:strokeColor="#E2E8F0"
-                        app:strokeWidth="1dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="20dp">
-
-                            <FrameLayout
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_circle_icon_orange">
-                                <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/ic_message"
-                                    app:tint="@color/warning" />
-                            </FrameLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:text="Aspirasi Warga"
-                                android:textColor="#1E293B"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
-
-                <!-- Row 2 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <!-- Berita Desa -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnMenuBerita"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="18dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:strokeColor="#E2E8F0"
-                        app:strokeWidth="1dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="20dp">
-
-                            <FrameLayout
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_circle_icon_green">
-                                <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_gravity="center"
-                                    android:src="@android:drawable/ic_menu_gallery"
-                                    app:tint="@color/success" />
-                            </FrameLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:text="Berita Desa"
-                                android:textColor="#1E293B"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Profil Desa -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/btnMenuProfilDesa"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="6dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:cardCornerRadius="18dp"
-                        app:cardElevation="2dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:strokeColor="#E2E8F0"
-                        app:strokeWidth="1dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:padding="20dp">
-
-                            <FrameLayout
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_circle_icon_red">
-                                <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_gravity="center"
-                                    android:src="@android:drawable/ic_menu_info_details"
-                                    app:tint="@color/error" />
-                            </FrameLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:text="Profil Desa"
-                                android:textColor="#1E293B"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp"
+                android:layout_marginHorizontal="4dp">
+                <View android:layout_width="4dp" android:layout_height="22dp" android:background="@color/primary" android:layout_marginEnd="10dp" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Menu Layanan Utama" android:textColor="@color/primary" android:textSize="16sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_chip_green" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:text="4 layanan" android:textColor="@color/secondary" android:textSize="10sp" android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Berita Desa Header Layout -->
-            <RelativeLayout
+            <!-- Row 1: Penduduk + Aspirasi -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnMenuPenduduk"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp"
+                    android:clickable="true" android:focusable="true"
+                    app:cardCornerRadius="22dp" app:cardElevation="3dp" app:cardBackgroundColor="@color/white"
+                    app:strokeColor="@color/outline_variant" app:strokeWidth="1dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="22dp">
+                        <FrameLayout android:layout_width="62dp" android:layout_height="62dp" android:background="@drawable/bg_icon_blue_light">
+                            <ImageView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:src="@drawable/ic_people" app:tint="@color/secondary" />
+                        </FrameLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Data Penduduk" android:textColor="@color/text_main" android:textSize="13sp" android:textStyle="bold" android:gravity="center" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Kelola data warga" android:textColor="@color/text_muted" android:textSize="10sp" android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnMenuAspirasi"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp"
+                    android:clickable="true" android:focusable="true"
+                    app:cardCornerRadius="22dp" app:cardElevation="3dp" app:cardBackgroundColor="@color/white"
+                    app:strokeColor="@color/outline_variant" app:strokeWidth="1dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="22dp">
+                        <FrameLayout android:layout_width="62dp" android:layout_height="62dp" android:background="@drawable/bg_icon_amber_light">
+                            <ImageView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:src="@drawable/ic_message" app:tint="@color/warning" />
+                        </FrameLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Aspirasi Warga" android:textColor="@color/text_main" android:textSize="13sp" android:textStyle="bold" android:gravity="center" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Sampaikan suara desa" android:textColor="@color/text_muted" android:textSize="10sp" android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Row 2: Berita + Profil -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="28dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnMenuBerita"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp"
+                    android:clickable="true" android:focusable="true"
+                    app:cardCornerRadius="22dp" app:cardElevation="3dp" app:cardBackgroundColor="@color/white"
+                    app:strokeColor="@color/outline_variant" app:strokeWidth="1dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="22dp">
+                        <FrameLayout android:layout_width="62dp" android:layout_height="62dp" android:background="@drawable/bg_icon_green_light">
+                            <ImageView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:src="@drawable/ic_newspaper" app:tint="@color/secondary" />
+                        </FrameLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Berita Desa" android:textColor="@color/text_main" android:textSize="13sp" android:textStyle="bold" android:gravity="center" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Info terkini warga" android:textColor="@color/text_muted" android:textSize="10sp" android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnMenuProfilDesa"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp"
+                    android:clickable="true" android:focusable="true"
+                    app:cardCornerRadius="22dp" app:cardElevation="3dp" app:cardBackgroundColor="@color/white"
+                    app:strokeColor="@color/outline_variant" app:strokeWidth="1dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="22dp">
+                        <FrameLayout android:layout_width="62dp" android:layout_height="62dp" android:background="@drawable/bg_icon_red_light">
+                            <ImageView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:src="@drawable/ic_village" app:tint="@color/error" />
+                        </FrameLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Profil Desa" android:textColor="@color/text_main" android:textSize="13sp" android:textStyle="bold" android:gravity="center" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="Kenali desamu" android:textColor="@color/text_muted" android:textSize="10sp" android:gravity="center" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- ===== INFO BANNER ===== -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginHorizontal="4dp">
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFBEB"
+                app:strokeColor="#D4A017"
+                app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚡" android:textSize="24sp" android:layout_marginEnd="14dp" />
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Akses Cepat NusaData" android:textColor="#7B5800" android:textSize="13sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Semua layanan desa dalam satu genggaman tangan." android:textColor="#A07800" android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:id="@+id/tvBeritaHeader"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:text="Berita Terbaru Desa"
-                    android:textColor="@color/primary_dark"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/btnViewAllNews"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Lihat Semua"
-                    android:textColor="@color/secondary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
+            <!-- ===== BERITA SECTION ===== -->
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:layout_marginHorizontal="4dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:orientation="horizontal" android:gravity="center_vertical">
+                    <View android:layout_width="4dp" android:layout_height="22dp" android:background="@color/primary" android:layout_marginEnd="10dp" />
+                    <TextView android:id="@+id/tvBeritaHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Berita Terbaru Desa" android:textColor="@color/primary" android:textSize="16sp" android:textStyle="bold" />
+                </LinearLayout>
+                <TextView android:id="@+id/btnViewAllNews" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:background="@drawable/bg_chip_green" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="Lihat Semua →" android:textColor="@color/secondary" android:textSize="11sp" android:textStyle="bold" android:visibility="gone" />
             </RelativeLayout>
 
-            <!-- Progress Bar -->
-            <ProgressBar
-                android:id="@+id/pbNews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:visibility="gone" />
+            <ProgressBar android:id="@+id/pbNews" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_margin="20dp" android:visibility="gone" />
 
-            <!-- RecyclerView for News -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvNews"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_news" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvNews" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" tools:listitem="@layout/item_news" />
 
-            <!-- Log Out Button -->
+            <!-- Divider -->
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="24dp" android:background="@color/outline_variant" />
+
+            <!-- Footer Brand -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🌊 NusaData · Bina Desa Nusantara" android:textColor="@color/primary" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Membangun desa yang maju dan bermartabat" android:textColor="@color/text_muted" android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Logout -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnExit"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:text="Keluar Akun"
                 android:textColor="@color/error"
                 app:strokeColor="@color/error"
                 app:strokeWidth="1.5dp"
-                app:cornerRadius="12dp"
+                app:cornerRadius="16dp"
                 app:icon="@drawable/ic_logout"
                 app:iconTint="@color/error" />
 
