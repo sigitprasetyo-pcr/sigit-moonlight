@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +26,8 @@
         <!-- Splash Screen (Launcher) -->
         <activity
             android:name=".pertemuan_4.splash.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Sigitmoonlight.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -32,7 +37,8 @@
         <!-- Login & Auth -->
         <activity
             android:name=".pertemuan_11.onboarding.OnboardingActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Sigitmoonlight.Splash" />
 
         <activity
             android:name=".pertemuan_3.LoginActivity"
@@ -49,7 +55,8 @@
         <!-- Main -->
         <activity
             android:name=".pertemuan_4.main.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop" />
 
         <activity
             android:name=".pertemuan_4.main.AuthActivity"
@@ -89,6 +96,11 @@
 
         <activity
             android:name=".pertemuan_10.recyclerview.DesaListActivity"
+            android:exported="false" />
+
+        <!-- Notification Receiver -->
+        <receiver
+            android:name=".notification.ReminderReceiver"
             android:exported="false" />
 
     </application>

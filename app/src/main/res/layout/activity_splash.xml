@@ -49,8 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="24dp"
-                android:src="@drawable/ic_nusadata_logo"
-                app:tint="@color/white" />
+                android:src="@drawable/ic_nusadata_logo" />
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Gold accent line -->

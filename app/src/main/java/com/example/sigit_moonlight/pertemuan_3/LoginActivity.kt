@@ -33,12 +33,15 @@ class LoginActivity : AppCompatActivity() {
             if (isRule1Match || isRule2Match) {
                 with(sharedPref.edit()) {
                     putBoolean("isLogin", true)
+                    putString("namaUser", username) // simpan nama untuk notifikasi
                     apply()
                 }
 
                 val intent = Intent(this, MainActivity::class.java)
+                // FIX: Gunakan CLEAR_TOP + finishAffinity() agar aman di Android 14+ (API 34+)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
-                finish()
+                finishAffinity()
             } else {
                 AlertDialog.Builder(this)
                     .setTitle("Gagal")

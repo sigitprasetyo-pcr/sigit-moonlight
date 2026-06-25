@@ -27,7 +27,9 @@
                 android:layout_height="match_parent"
                 android:paddingHorizontal="16dp">
 
+                <!-- Logo + Nama App -->
                 <LinearLayout
+                    android:id="@+id/layoutBrand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -41,7 +43,6 @@
                         android:layout_height="32dp"
                         app:cardCornerRadius="8dp"
                         app:cardElevation="0dp">
-
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -54,7 +55,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:orientation="vertical">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -62,7 +62,6 @@
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -72,26 +71,49 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLogoutToolbar"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                <!-- Tombol kanan: Reminder + Logout -->
+                <LinearLayout
+                    android:id="@+id/layoutToolbarActions"
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:backgroundTint="@color/logoutRed"
-                    android:paddingHorizontal="12dp"
-                    android:text="Logout"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:cornerRadius="6dp"
-                    app:icon="@drawable/ic_logout"
-                    app:iconGravity="textStart"
-                    app:iconPadding="4dp"
-                    app:iconSize="14dp"
-                    app:iconTint="@color/white"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!-- Tombol Reminder (Bell) -->
+                    <ImageButton
+                        android:id="@+id/btnReminder"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_icon_blue_light"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_bell"
+                        android:contentDescription="Atur Pengingat"
+                        app:tint="@color/white"/>
+
+                    <!-- Tombol Logout -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLogoutToolbar"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:backgroundTint="@color/logoutRed"
+                        android:paddingHorizontal="12dp"
+                        android:text="Logout"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:icon="@drawable/ic_logout"
+                        app:iconGravity="textStart"
+                        app:iconPadding="4dp"
+                        app:iconSize="14dp"
+                        app:iconTint="@color/white"/>
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>

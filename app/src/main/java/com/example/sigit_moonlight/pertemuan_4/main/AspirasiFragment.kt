@@ -20,6 +20,7 @@ import com.example.sigit_moonlight.databinding.FragmentAspirasiBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.text.SimpleDateFormat
 import java.util.*
+import com.example.sigit_moonlight.notification.NotificationHelper
 
 class AspirasiFragment : Fragment() {
 
@@ -129,6 +130,8 @@ class AspirasiFragment : Fragment() {
                 Toast.makeText(requireContext(), "Aspirasi berhasil diperbarui", Toast.LENGTH_SHORT).show()
             } else {
                 viewModel.insert(newAspirasi)
+                // 🔔 Notifikasi lokal: aspirasi terkirim
+                NotificationHelper.showAspirasiSentNotification(requireContext(), judul)
                 Toast.makeText(requireContext(), "Aspirasi berhasil dikirim", Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()

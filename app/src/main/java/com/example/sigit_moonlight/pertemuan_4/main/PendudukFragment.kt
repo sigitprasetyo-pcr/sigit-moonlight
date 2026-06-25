@@ -19,6 +19,7 @@ import com.example.sigit_moonlight.databinding.DialogDetailPendudukBinding
 import com.example.sigit_moonlight.databinding.FragmentPendudukBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
+import com.example.sigit_moonlight.notification.NotificationHelper
 
 class PendudukFragment : Fragment() {
 
@@ -145,6 +146,8 @@ class PendudukFragment : Fragment() {
                 Toast.makeText(requireContext(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show()
             } else {
                 viewModel.insert(newPenduduk)
+                // 🔔 Notifikasi lokal: data penduduk tersimpan
+                NotificationHelper.showPendudukSavedNotification(requireContext(), nama)
                 Toast.makeText(requireContext(), "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()

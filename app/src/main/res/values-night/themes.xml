@@ -1,9 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Night/Dark Mode: Tetap gunakan warna navy NusaData, bukan hitam -->
     <style name="Base.Theme.Sigitmoonlight" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
-        <item name="colorAccent">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondary</item>
+        <!-- Gunakan warna navy bukan hitam agar tidak terlihat blank -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="colorControlHighlight">#1565C033</item>
+    </style>
+    <style name="Theme.Sigitmoonlight" parent="Base.Theme.Sigitmoonlight" />
+
+    <!-- Tema khusus Splash: background langsung navy agar tidak flash hitam -->
+    <style name="Theme.Sigitmoonlight.Splash" parent="Base.Theme.Sigitmoonlight">
         <item name="android:windowBackground">@color/primaryDark</item>
-        <item name="android:statusBarColor">@color/primaryDark</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 </resources>

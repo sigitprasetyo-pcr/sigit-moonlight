@@ -37,9 +37,11 @@ class SplashActivity : AppCompatActivity() {
                 else -> Intent(this, LoginActivity::class.java)
             }
 
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            // FIX: Hapus FLAG_ACTIVITY_CLEAR_TASK, gunakan finishAffinity()
+            // FLAG_ACTIVITY_CLEAR_TASK + finish() → crash di Android 14+ (API 34+)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
-            finish()
+            finishAffinity() // Tutup semua activity di stack dengan aman
         }, 2500)
     }
 }

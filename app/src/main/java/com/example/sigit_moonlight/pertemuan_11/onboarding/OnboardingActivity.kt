@@ -84,8 +84,11 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun navigateToLogin() {
         markOnboardingFinished()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
+        val intent = Intent(this, LoginActivity::class.java)
+        // FIX: Gunakan CLEAR_TOP + finishAffinity() agar aman di Android 14+ (API 34+)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+        finishAffinity()
     }
 
     private fun markOnboardingFinished() {

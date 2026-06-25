@@ -1,7 +1,5 @@
 package com.example.sigit_moonlight.pertemuan_4.main
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sigit_moonlight.R
 import com.example.sigit_moonlight.databinding.FragmentHomeBinding
-import com.example.sigit_moonlight.pertemuan_3.LoginActivity
 import com.example.sigit_moonlight.pertemuan_11.news.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
@@ -110,16 +107,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun logout() {
-        val sharedPref = requireActivity().getSharedPreferences("BinaDesaPref", Context.MODE_PRIVATE)
-        sharedPref.edit().apply {
-            putBoolean("isLogin", false)
-            apply()
-        }
-
-        val intent = Intent(requireContext(), LoginActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
-        requireActivity().finish()
+        // Delegasikan ke MainActivity agar pakai finishAffinity() - aman di Android 14+
+        (activity as? MainActivity)?.performLogout()
     }
 
     override fun onDestroyView() {
